@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo List</title>
+    <script src="scriptTodo.js" defer></script>
+  </head>
+  <body>
+    <h1 id="title">My Todo List</h1>
+
+    <p id="taskCounter">Task: 0</p>
+    <p id="completedCounter">Completed: 0</p>
+
+    <input id="taskInput" type="text" placeholder="Enter a task" />
+    <select id="prioritySelect">
+      <option value="low">🟢 Low</option>
+      <option value="medium">🟡 Medium</option>
+      <option value="high">🔴 High</option>
+    </select>
+
+    <button id="button">Add Task</button>
+
+    <div id="taskList"></div>
+  </body>
+</html>
