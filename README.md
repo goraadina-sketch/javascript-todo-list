@@ -1,10 +1,8 @@
 # JavaScript To-Do List
 
-A simple interactive To-Do List built while learning JavaScript.
+A responsive and interactive To-Do List built with HTML, CSS and vanilla JavaScript.
 
-## About
-
-This project helped me practice the fundamentals of JavaScript by building a real interactive application without using frameworks.
+This is a learning project created while developing my front-end development skills.
 
 ## Features
 
@@ -12,21 +10,39 @@ This project helped me practice the fundamentals of JavaScript by building a rea
 - Edit existing tasks
 - Delete tasks
 - Mark tasks as completed
-- Dynamic task counter
-- DOM manipulation and event handling
+- Choose a priority level (Low, Medium or High)
+- Change the priority of an existing task
+- Dynamic task and completed counters
+- Automatic focus on the task input
+- Responsive layout for desktop and mobile
 
 ## Technologies
 
 - HTML5
-- JavaScript (Vanilla)
+- CSS3
+- JavaScript (Vanilla JS)
 
-## What I learned
+## What I practiced
 
+Through this project, I practiced:
+
+- Semantic HTML structure
+- CSS styling and responsive design
+- Flexbox
 - DOM manipulation
 - Event listeners
-- Arrays and objects
-- Functions and application logic
+- Creating HTML elements dynamically with JavaScript
+- Updating the interface based on user actions
+- Working with functions and conditional statements
 
----
+## Future improvements
 
-Created by Adina Gorbanescu while learning Front-End Development.
+Possible improvements for a future version:
+
+- Save tasks using localStorage
+- Add task filters
+- Improve accessibility
+
+## Live Demo
+
+The project is available through GitHub Pages.
