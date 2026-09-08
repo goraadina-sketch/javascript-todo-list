@@ -1,22 +1,16 @@
-//Step 1 — Define what should happen
-//For the first version, the behavior will be:
-//Every task gets an Edit button.
-//When you click Edit, the task text becomes editable.
-//The Edit button changes to Save.
-//When you click Save, the new text replaces the old task text.
-//The button changes back to Edit.
 
 const titleH1 = document.querySelector("#title");
 const taskCounter = document.querySelector("#taskCounter");
 const completedCounter = document.querySelector("#completedCounter");
 const taskInput = document.querySelector("#taskInput");
 const prioritySelect = document.querySelector("#prioritySelect");
-const button = document.querySelector("#button");
+const addTaskBtn = document.querySelector("#addTaskBtn");
 
 const taskList = document.querySelector("#taskList");
 
 let completedCount = 0;
 let taskCount = 0;
+let tasks = [];
 
 function updateTitle() {
   if (completedCount === taskCount && taskCount > 0) {
@@ -35,19 +29,26 @@ function updateCompletedCounter() {
 }
 
 function updatePriorityLabel(priorityLabel, priority) {
+  priorityLabel.classList.remove(
+    "priority-low",
+    "priority-medium",
+    "priority-high"
+  );
+
   if (priority === "low") {
     priorityLabel.textContent = "🟢 Low";
-    priorityLabel.style.color = "green";
+    priorityLabel.classList.add("priority-low");
   } else if (priority === "medium") {
     priorityLabel.textContent = "🟡 Medium";
-    priorityLabel.style.color = "yellow";
-  } else if (priority === "high") {
+    priorityLabel.classList.add("priority-medium");
+  } else {
     priorityLabel.textContent = "🔴 High";
-    priorityLabel.style.color = "red";
+    priorityLabel.classList.add("priority-high");
   }
 }
 
 function createTask(taskText, priority) {
+
   //Create elements
   const newDiv = document.createElement("div");
   const item = document.createElement("p");
@@ -57,6 +58,11 @@ function createTask(taskText, priority) {
   const btnDelete = document.createElement("button");
   const btnEdit = document.createElement("button");
   const btnPriority = document.createElement("button");
+
+  btnComplete.classList.add("btn-complete");
+  btnEdit.classList.add("btn-edit");
+  btnDelete.classList.add("btn-delete");
+  btnPriority.classList.add("btn-priority");
 
   //Configure elements
   item.textContent = taskText;
@@ -86,10 +92,9 @@ function createTask(taskText, priority) {
   updateTaskCounter();
   updateTitle();
 
-  //Complete the button
+  //Complete button
   btnComplete.addEventListener("click", () => {
-    newDiv.style.background = "lightgreen";
-    item.style.color = "darkgreen";
+    newDiv.classList.add("completed");
 
     completedCount++;
     updateCompletedCounter();
@@ -156,14 +161,8 @@ function createTask(taskText, priority) {
   });
 }
 
-button.addEventListener("click", (e) => {
-  // 1. Validate
-  // 2. Create elements
-  // 3. Configure elements
-  // 4. Build the task structure
-  // 5. Add it to the page
-  // 6. Update state and interface
-  // 7. Add behavior to the new  buttons
+addTaskBtn.addEventListener("click", (e) => {
+ 
   e.preventDefault();
 
   const taskText = taskInput.value.trim();
@@ -171,7 +170,17 @@ button.addEventListener("click", (e) => {
 
   if (taskText === "") return;
 
+  const task = {
+  text: taskText,
+  priority: priority,
+  completed: false
+ };
+
+  tasks.push(task);
+  console.log(tasks);
+
   createTask(taskText, priority);
 
   taskInput.value = "";
+  taskInput.focus();
 });

@@ -4,23 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Todo List</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="scriptTodo.js" defer></script>
   </head>
   <body>
-    <h1 id="title">My Todo List</h1>
+    <main class="todo-app">
+      <header class="app-header">
+        <h1 id="title">My Todo List</h1>
+        <p class="subtitle">Organize your tasks and stay focus</p>
+      </header>
 
-    <p id="taskCounter">Task: 0</p>
-    <p id="completedCounter">Completed: 0</p>
+      <section class="stats">
+        <p id="taskCounter">Task: 0</p>
+        <p id="completedCounter">Completed: 0</p>
+      </section>
 
-    <input id="taskInput" type="text" placeholder="Enter a task" />
-    <select id="prioritySelect">
-      <option value="low">🟢 Low</option>
-      <option value="medium">🟡 Medium</option>
-      <option value="high">🔴 High</option>
-    </select>
+      <section class="task-control">
+        <input
+          id="taskInput"
+          type="text"
+          placeholder="Enter a task"
+          autocomplete="off"
+          autofocus
+        />
 
-    <button id="button">Add Task</button>
+        <select id="prioritySelect">
+          <option value="low">🟢 Low</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="high">🔴 High</option>
+        </select>
 
-    <div id="taskList"></div>
+        <button id="addTaskBtn" type="button">Add Task</button>
+      </section>
+
+      <section class="task-section">
+        <div id="taskList" class="task-list"></div>
+      </section>
+    </main>
   </body>
 </html>
